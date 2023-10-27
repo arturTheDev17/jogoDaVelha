@@ -39,32 +39,84 @@ public class jogoDaVelha {
 					erro = 0;
 				}
 			}
+			if ( jogo [ 0 ][ 0 ] == '✗' && jogo [ 0 ][ 1 ] == '✗' && jogo [ 0 ][ 2 ] == '✗' ) {
+				ganhador = -1;
+			} else if ( jogo [ 1 ][ 0 ] == '✗' && jogo [ 1 ][ 1 ] == '✗' && jogo [ 1 ][ 2 ] == '✗' ) {
+				ganhador = -1;
+			} else if ( jogo [ 2 ][ 0 ] == '✗' && jogo [ 2 ][ 1 ] == '✗' && jogo [ 2 ][ 2 ] == '✗' ) {
+				ganhador = -1;
+			} else if ( jogo [ 0 ][ 0 ] == '✗' && jogo [ 1 ][ 0 ] == '✗' && jogo [ 2 ][ 0 ] == '✗' ) {
+				ganhador = -1;
+			} else if ( jogo [ 0 ][ 1 ] == '✗' && jogo [ 1 ][ 1 ] == '✗' && jogo [ 2 ][ 1 ] == '✗' ) {
+				ganhador = -1;
+			} else if ( jogo [ 0 ][ 2 ] == '✗' && jogo [ 1 ][ 2 ] == '✗' && jogo [ 2 ][ 2 ] == '✗' ) {
+				ganhador = -1;
+			} else if ( jogo [ 0 ][ 0 ] == '✗' && jogo [ 1 ][ 1 ] == '✗' && jogo [ 2 ][ 2 ] == '✗' ) {
+				ganhador = -1;
+			} else if ( jogo [ 0 ][ 2 ] == '✗' && jogo [ 1 ][ 1 ] == '✗' && jogo [ 2 ][ 0 ] == '✗' ) {
+				ganhador = -1;
+			}
 			erro = -1;
-			while ( erro != 0 ) {
-				for ( int mostrar = 0 ; mostrar < jogo.length ; mostrar++ ) {
-					if ( mostrar == 0 ) {
-						System.out.println ( "    1     2     3 " );
+			if ( ganhador != -1 ) {
+				while ( erro != 0 ) {
+					for ( int mostrar = 0 ; mostrar < jogo.length ; mostrar++ ) {
+						if ( mostrar == 0 ) {
+							System.out.println ( "    1     2     3 " );
+						} else {
+							System.out.println ();
+						}
+						System.out.print ( ( mostrar + 1 ) + " " );
+						for ( int mostrarColuna = 0 ; mostrarColuna < jogo.length ; mostrarColuna++ ) {
+							System.out.print ( "| " + jogo [ mostrar ][ mostrarColuna ] + " | " );
+						}
+					}
+					System.out.println ( "\nInsira a linha onde gostaria de colocar a ○ " );
+					linha = sc.nextInt() - 1;
+					System.out.println ( "Insira a coluna onde gostaria de colocar a ○ " );
+					coluna = sc.nextInt() - 1;
+					if ( jogo [ linha ][ coluna ] == '✗' || jogo [ linha ][ coluna ] == '○' ) {
+						System.out.println ( "ERRO. Linha ocupada. Tente novamente." );
 					} else {
-						System.out.println ();
+						jogo [ linha ][ coluna ] = '○';
+						erro = 0;
 					}
-					System.out.print ( ( mostrar + 1 ) + " " );
-					for ( int mostrarColuna = 0 ; mostrarColuna < jogo.length ; mostrarColuna++ ) {
-						System.out.print ( "| " + jogo [ mostrar ][ mostrarColuna ] + " | " );
+					if ( jogo [ 0 ][ 0 ] == '○' && jogo [ 0 ][ 1 ] == '○' && jogo [ 0 ][ 2 ] == '○' ) {
+						ganhador = -1;
+					} else if ( jogo [ 1 ][ 0 ] == '○' && jogo [ 1 ][ 1 ] == '○' && jogo [ 1 ][ 2 ] == '○' ) {
+						ganhador = -1;
+					} else if ( jogo [ 2 ][ 0 ] == '○' && jogo [ 2 ][ 1 ] == '○' && jogo [ 2 ][ 2 ] == '○' ) {
+						ganhador = -1;
+					} else if ( jogo [ 0 ][ 0 ] == '○' && jogo [ 1 ][ 0 ] == '○' && jogo [ 2 ][ 0 ] == '○' ) {
+						ganhador = -1;
+					} else if ( jogo [ 0 ][ 1 ] == '○' && jogo [ 1 ][ 1 ] == '○' && jogo [ 2 ][ 1 ] == '○' ) {
+						ganhador = -1;
+					} else if ( jogo [ 0 ][ 2 ] == '○' && jogo [ 1 ][ 2 ] == '○' && jogo [ 2 ][ 2 ] == '○' ) {
+						ganhador = -1;
+					} else if ( jogo [ 0 ][ 0 ] == '○' && jogo [ 1 ][ 1 ] == '○' && jogo [ 2 ][ 2 ] == '○' ) {
+						ganhador = -1;
+					} else if ( jogo [ 0 ][ 2 ] == '○' && jogo [ 1 ][ 1 ] == '○' && jogo [ 2 ][ 0 ] == '○' ) {
+						ganhador = -1;
 					}
-				}
-				System.out.println ( "\nInsira a linha onde gostaria de colocar a ○ " );
-				linha = sc.nextInt() - 1;
-				System.out.println ( "Insira a coluna onde gostaria de colocar a ○ " );
-				coluna = sc.nextInt() - 1;
-				if ( jogo [ linha ][ coluna ] == '✗' || jogo [ linha ][ coluna ] == '○' ) {
-					System.out.println ( "ERRO. Linha ocupada. Tente novamente." );
-				} else {
-					jogo [ linha ][ coluna ] = '○';
-					erro = 0;
 				}
 			}
 			erro = -1;
 		} while ( ganhador != -1 && ganhador != -2 );
+		for ( int mostrar = 0 ; mostrar < jogo.length ; mostrar++ ) {
+			if ( mostrar == 0 ) {
+				System.out.println ( "    1     2     3 " );
+			} else {
+				System.out.println ();
+			}
+			System.out.print ( ( mostrar + 1 ) + " " );
+			for ( int mostrarColuna = 0 ; mostrarColuna < jogo.length ; mostrarColuna++ ) {
+				System.out.print ( "| " + jogo [ mostrar ][ mostrarColuna ] + " | " );
+			}
+		}
+		if ( ganhador == -1 ) {
+			System.out.println ( "\n| O JOGADOR 1 GANHOU! |" );
+		} else if ( ganhador == -2 ) {
+			System.out.println ( "\n| O JOGADOR 2 GANHOU! |" );
+		}
 		sc.close();
 	}
 
