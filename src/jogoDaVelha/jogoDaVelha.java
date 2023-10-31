@@ -38,7 +38,7 @@ public class jogoDaVelha {
 				if ( linha < 0 || coluna < 0 || linha > 2 || coluna > 2 ) {
 					System.out.println ( "ERRO. Valor para linha e/ou coluna inválido. Tente novamente." );
 					
-				} else if ( jogo [ linha ][ coluna ] == '✗' || jogo [ linha ][ coluna ] == '○' ) {
+				} else if ( jogo [ linha ][ coluna ] == '☓' || jogo [ linha ][ coluna ] == '○' ) {
 					System.out.println ( "ERRO. Linha ocupada. Tente novamente." );
 					
 				} else {
@@ -68,7 +68,6 @@ public class jogoDaVelha {
 			if ( contador >= 9 ) {
 				break;
 			}
-			System.out.println ( contador );
 			if ( ganhador != -1 ) {
 				while ( erro != 0 ) {
 					for ( int mostrar = 0 ; mostrar < jogo.length ; mostrar++ ) {
@@ -92,7 +91,10 @@ public class jogoDaVelha {
 					linha = sc.nextInt() - 1;
 					System.out.println ( "Insira a coluna onde gostaria de colocar a ○ " );
 					coluna = sc.nextInt() - 1;
-					if ( jogo [ linha ][ coluna ] == '✗' || jogo [ linha ][ coluna ] == '○' ) {
+					if ( linha < 0 || coluna < 0 || linha > 2 || coluna > 2 ) {
+						System.out.println ( "ERRO. Valor para linha e/ou coluna inválido. Tente novamente." );
+						
+					} else if ( jogo [ linha ][ coluna ] == '☓' || jogo [ linha ][ coluna ] == '○' ) {
 						System.out.println ( "ERRO. Linha ocupada. Tente novamente." );
 					} else {
 						jogo [ linha ][ coluna ] = '○';
